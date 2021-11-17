@@ -1,0 +1,7 @@
+
+S	java:S106"9Replace this use of System.out or System.err by a logger.( £˜åýÿÿÿÿ
+K
+java:S1481".Remove this unused "myStudent" local variable.(¾ç¢ô8¢¶½êÍ/
+U	java:S106'"9Replace this use of System.out or System.err by a logger.(Ê·¹–8‰“µêÍ/
+]	java:S125!"<This block of commented-out lines of code should be removed.(Í¬œ·øÿÿÿÿ8¥¶½êÍ/
+Z	java:S106/"9Replace this use of System.out or System.err by a logger.(ãÉ®îüÿÿÿÿ8ŒÕ»êÍ/

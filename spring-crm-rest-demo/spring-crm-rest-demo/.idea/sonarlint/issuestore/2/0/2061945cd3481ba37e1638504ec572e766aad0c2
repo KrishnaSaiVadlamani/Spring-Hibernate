@@ -1,0 +1,14 @@
+
+`	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(×¡ûÊÿÿÿÿÿ
+c
+java:S34579"AFormat specifiers should be used instead of string concatenation.(‘í—üÿÿÿÿ8„ğ£ƒÑ/
+^
+java:S3457:"AFormat specifiers should be used instead of string concatenation.(£ñØÅ8‡ğ£ƒÑ/
+k
+java:S1128"IRemove this unused import 'org.springframework.web.servlet.ViewResolver'.(¸Òóˆüÿÿÿÿ8éÄ¤ƒÑ/
+ƒ
+java:S1128"fRemove this unused import 'org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry'.(ùçšï8éÄ¤ƒÑ/
+€
+java:S1128"^Remove this unused import 'org.springframework.web.servlet.view.InternalResourceViewResolver'.(Îøÿ‚şÿÿÿÿ8êÄ¤ƒÑ/
+}
+java:S1488^"bImmediately return this expression instead of assigning it to the temporary variable "intPropVal".(ª²ºÍûÿÿÿÿ

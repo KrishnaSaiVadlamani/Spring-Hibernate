@@ -1,0 +1,6 @@
+com.testdb.TestDbServlet=javax.servlet.annotation.WebServlet
+com.testdb.aspect.CRMLoggingAspect=org.springframework.stereotype.Component
+com.testdb.controller.CustomerController=org.springframework.stereotype.Component
+com.testdb.dao.CustomerDAOImpl=org.springframework.stereotype.Component
+com.testdb.entity.Customer=javax.persistence.Entity,javax.persistence.Table
+com.testdb.service.CustomerServiceImpl=org.springframework.stereotype.Component

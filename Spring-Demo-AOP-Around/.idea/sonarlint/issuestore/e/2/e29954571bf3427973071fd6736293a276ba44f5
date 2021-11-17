@@ -1,0 +1,25 @@
+
+X	java:S125."<This block of commented-out lines of code should be removed.(ø¿ëó8Ô½›˜Ğ/
+d
+java:S6201™"HReplace this instanceof check and cast with 'instanceof Account account'(½²†ÿÿÿÿÿ
+k	java:S117S"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ñ™Çøÿÿÿÿ
+R
+java:S2629"7Use the built-in formatting to construct this argument.(ŠÊœ®øÿÿÿÿ
+R
+java:S26295"7Use the built-in formatting to construct this argument.(úí€çøÿÿÿÿ
+R
+java:S2629F"7Use the built-in formatting to construct this argument.(šÈÍ„ıÿÿÿÿ
+M
+java:S2629W"7Use the built-in formatting to construct this argument.(¯½§Ü
+L
+java:S2629Z"7Use the built-in formatting to construct this argument.(™£´N
+R
+java:S2629f"7Use the built-in formatting to construct this argument.(¾¯¯§øÿÿÿÿ
+R
+java:S2629i"7Use the built-in formatting to construct this argument.(û—«ğÿÿÿÿÿ
+R
+java:S2629p"7Use the built-in formatting to construct this argument.(û—«ğÿÿÿÿÿ
+S
+java:S2629"7Use the built-in formatting to construct this argument.(¾¢ğ®ùÿÿÿÿ
+;
+java:S2629—"$Invoke method(s) only conditionally.( ğê

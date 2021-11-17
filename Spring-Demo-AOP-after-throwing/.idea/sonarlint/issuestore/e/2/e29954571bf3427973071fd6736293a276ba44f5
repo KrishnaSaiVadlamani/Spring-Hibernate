@@ -1,0 +1,14 @@
+
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ú¦™üÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(â†¡ø
+S	java:S106+"9Replace this use of System.out or System.err by a logger.(ŠîíÆÿÿÿÿÿ
+S	java:S106."9Replace this use of System.out or System.err by a logger.(÷ÛŒüÿÿÿÿ
+S	java:S1065"9Replace this use of System.out or System.err by a logger.(÷ÛŒüÿÿÿÿ
+N	java:S106O"9Replace this use of System.out or System.err by a logger.(¢Ã¹›
+N	java:S106T"9Replace this use of System.out or System.err by a logger.(‚‰úº
+S	java:S106\"9Replace this use of System.out or System.err by a logger.(ÕÂ†Àıÿÿÿÿ
+c
+java:S6201^"HReplace this instanceof check and cast with 'instanceof Account account'(½²†ÿÿÿÿÿ
+N	java:S106b"9Replace this use of System.out or System.err by a logger.(¾„îÅ
+N	java:S106c"9Replace this use of System.out or System.err by a logger.(‹Ú¸Œ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ñ™Çøÿÿÿÿ

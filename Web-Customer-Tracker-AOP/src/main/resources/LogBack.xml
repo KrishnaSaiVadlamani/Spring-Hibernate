@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <property name="LOGS" value="/home/krisv/Desktop/Zemosolabs-20211002T184509Z-001/Zemosolabs"/>
+    <!--    <property name="LOGS" value="./logs/"/>-->
+    <!--logging into console -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <!--logging into file    -->
+    <appender name="rfAppender"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGS}/CRM-logger.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy:MM:dd: HH:mm:ss} %p %C{1.} [%t] %m%n</pattern>
+        </encoder>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                ${LOGS}/archived/CRM-logger-%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="console" />
+        <appender-ref ref="rfAppender"/>
+    </root>
+    <logger name="history" level="trace">
+        <appender-ref ref="rfAppender"/>
+        <appender-ref ref="console"/>
+    </logger>
+</configuration>
