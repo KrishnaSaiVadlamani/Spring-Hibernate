@@ -15,7 +15,6 @@ public interface StudentMapper {
 
         List<StudentDto> toDtos(List<Student> students);
 
-        Student toEntity(StudentDto studentDto);
 
 }
 

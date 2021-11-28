@@ -51,7 +51,7 @@ public class LoginController {
         public String showRegistrationForm(Model model) {
             model.addAttribute("student", new Student());
 
-           // List<Course> theCourse=courseService.findAllCourses();
+
             List<CourseDto> courseDtos= CourseMapper.INSTANCE.toDtos(courseService.findAllCourses());
 
             model.addAttribute("courses",courseDtos);
@@ -65,10 +65,11 @@ public class LoginController {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(student.getPassword());
             student.setPassword(encodedPassword);
-//           System.out.println(student.toString());
+
             if (studentService.studentExists(student.getEmail())){
                 throw new RuntimeException("Email Already exists");
             }
+
             if (bindingResult.hasErrors()){
                 return "signup-form";
             }

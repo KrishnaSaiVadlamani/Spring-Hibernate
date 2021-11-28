@@ -19,18 +19,15 @@ import java.util.List;
 @AllArgsConstructor
 public class CourseController {
 
-    // need to inject StudentService
     @Autowired
     private CourseService courseService;
 
-    // add mapping for "/list"
     @GetMapping("/list")
     public String listCourses(Model theModel){
 
 
-        //List<Course> theCourses=courseService.findAllCourses();
         List<CourseDto> courseDtos= CourseMapper.INSTANCE.toDtos(courseService.findAllCourses());
-        // add to the spring model
+
         theModel.addAttribute("courses",courseDtos);
 
         return "course/list-courses";
@@ -41,10 +38,9 @@ public class CourseController {
     @GetMapping("/showFormForAdd")
     public String showFormForAddCourse(Model theModel) {
 
-        // create model attribute to bind form data
-        //    Course theCourse=new Course();
 
         CourseDto courseDto=CourseMapper.INSTANCE.toDto(new Course());
+
         theModel.addAttribute("course", courseDto);
 
         return "course/course-form";
@@ -55,13 +51,11 @@ public class CourseController {
                                     Model theModel) {
 
 
-
-  //      Course theCourse = courseService.findCourseById(theId);
         CourseDto courseDto=CourseMapper.INSTANCE.toDto(courseService.findCourseById(theId));
 
         theModel.addAttribute("course", courseDto);
 
-        // send over to our form
+
         return "course/course-form";
     }
 

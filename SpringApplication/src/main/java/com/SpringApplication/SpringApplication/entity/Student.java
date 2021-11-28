@@ -126,23 +126,4 @@ public class Student {
                 '}';
     }
 
-    public void addCourse(Course course) {
-        if (courses == null) {
-            courses = new ArrayList<>();
-        }
-        courses.add(course);
-    }
-
-    public void removeCourse(Course course) {
-        courses.remove(course);
-    }
-
-    public boolean isPresentCourse(Course course){
-        for (Course c : courses){
-            if (c.equals(course)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

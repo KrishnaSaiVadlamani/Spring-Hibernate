@@ -44,12 +44,6 @@ public class Course {
           this.title = title;
      }
 
-     public void addStudent(Student student) {
-          if (students == null) {
-               students = new ArrayList<>();
-          }
-          students.add(student);
-     }
 
 
 }

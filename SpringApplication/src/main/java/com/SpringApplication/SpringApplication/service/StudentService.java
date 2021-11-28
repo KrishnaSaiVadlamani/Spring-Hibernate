@@ -16,6 +16,7 @@ public interface StudentService {
     public void deleteStudentById(int theId);
 
     Student findStudentByEmail(String username);
+
     public boolean studentExists(String email);
 
 }

@@ -23,22 +23,18 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentController {
 
-    // need to inject StudentService
     @Autowired
     private StudentService studentService;
 
     @Autowired
     private CourseService courseService;
 
-    // add mapping for "/list"
     @GetMapping("/list")
     public String listStudents(Model theModel){
 
-        // get students from db
- //       List<Student> theStudents=studentService.findAllStudents();
         List<StudentDto> studentDtos= StudentMapper.INSTANCE.toDtos(studentService.findAllStudents());
 
-        // add to the spring model
+
         theModel.addAttribute("students",studentDtos);
 
         return "student/list-students";
@@ -50,20 +46,17 @@ public class StudentController {
     public String showFormForUpdateStudent(@RequestParam("studentId") int theId,
                                     Model theModel) {
 
-
-        // get the student from the service
-     //   Student theStudent = studentService.findStudentById(theId);
         StudentDto studentDto=StudentMapper.INSTANCE.toDto(studentService.findStudentById(theId));
 
-        // set student as a model attribute to pre-populate the form
+
         theModel.addAttribute("student", studentDto);
 
-    //    List<Course> theCourse=courseService.findAllCourses();
+
         List<CourseDto> courseDtos= CourseMapper.INSTANCE.toDtos(courseService.findAllCourses());
 
         theModel.addAttribute("theCourse",courseDtos);
 
-        // send over to our form
+
         return "student/student-update-form";
     }
 
@@ -73,7 +66,6 @@ public class StudentController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         StudentUserDetails userDetails = (StudentUserDetails)auth.getPrincipal();
         String emailId = userDetails.getUsername();
-       // Student student = studentService.findStudentByEmail(emailId);
         StudentDto studentDto=StudentMapper.INSTANCE.toDto(studentService.findStudentByEmail(emailId));
         model.addAttribute("student",studentDto);
         return "student-page";
@@ -82,7 +74,6 @@ public class StudentController {
 
     @GetMapping("/showAccount")
     public String showStudentAccountPage(@RequestParam("studentId") int id,Model model){
-     //   Student student = studentService.findStudentById(id);
         StudentDto studentDto=StudentMapper.INSTANCE.toDto(studentService.findStudentById(id));
         model.addAttribute("student",studentDto);
         return "student/account-page";
@@ -91,7 +82,6 @@ public class StudentController {
     @PostMapping("/update")
     public String updateStudent(@Valid @ModelAttribute("student") Student theStudent
     ){
-        // update the student
         studentService.saveStudent(theStudent);
 
         return "student/update-success";
@@ -99,9 +89,8 @@ public class StudentController {
 
     @PostMapping("/delete")
     public String deleteStudent(@RequestParam("studentId") int theId){
-        // delete student
         studentService.deleteStudentById(theId);
-        // redirect to /students/list
+
         return "redirect:/students/list";
     }
 
