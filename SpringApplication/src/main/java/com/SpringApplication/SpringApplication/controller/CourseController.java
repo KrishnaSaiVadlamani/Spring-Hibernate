@@ -1,7 +1,7 @@
 package com.SpringApplication.SpringApplication.controller;
 
+import com.SpringApplication.SpringApplication.converter.CourseConverter;
 import com.SpringApplication.SpringApplication.dto.CourseDto;
-import com.SpringApplication.SpringApplication.dto.CourseMapper;
 import com.SpringApplication.SpringApplication.entity.Course;
 import com.SpringApplication.SpringApplication.service.CourseService;
 import lombok.AllArgsConstructor;
@@ -26,9 +26,12 @@ public class CourseController {
     public String listCourses(Model theModel){
 
 
-        List<CourseDto> courseDtos= CourseMapper.INSTANCE.toDtos(courseService.findAllCourses());
+      //  List<CourseDto> courseDtos= CourseMapper.INSTANCE.toDtos(courseService.findAllCourses());
 
-        theModel.addAttribute("courses",courseDtos);
+        CourseConverter courseConvertor = new CourseConverter();
+        List<CourseDto> courseDtoList=courseConvertor.entityToDto(courseService.findAllCourses());
+
+        theModel.addAttribute("courses",courseDtoList);
 
         return "course/list-courses";
 
@@ -39,7 +42,8 @@ public class CourseController {
     public String showFormForAddCourse(Model theModel) {
 
 
-        CourseDto courseDto=CourseMapper.INSTANCE.toDto(new Course());
+      //  CourseDto courseDto=CourseMapper.INSTANCE.toDto(new Course());
+        CourseDto courseDto=new CourseDto();
 
         theModel.addAttribute("course", courseDto);
 
@@ -51,7 +55,7 @@ public class CourseController {
                                     Model theModel) {
 
 
-        CourseDto courseDto=CourseMapper.INSTANCE.toDto(courseService.findCourseById(theId));
+        CourseDto courseDto=new CourseConverter().entityToDto(courseService.findCourseById(theId));
 
         theModel.addAttribute("course", courseDto);
 

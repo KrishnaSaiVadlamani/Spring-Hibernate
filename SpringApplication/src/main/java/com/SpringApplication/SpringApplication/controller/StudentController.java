@@ -1,11 +1,10 @@
 package com.SpringApplication.SpringApplication.controller;
 
 import com.SpringApplication.SpringApplication.config.StudentUserDetails;
+import com.SpringApplication.SpringApplication.converter.CourseConverter;
+import com.SpringApplication.SpringApplication.converter.StudentConverter;
 import com.SpringApplication.SpringApplication.dto.CourseDto;
-import com.SpringApplication.SpringApplication.dto.CourseMapper;
 import com.SpringApplication.SpringApplication.dto.StudentDto;
-import com.SpringApplication.SpringApplication.dto.StudentMapper;
-import com.SpringApplication.SpringApplication.entity.Course;
 import com.SpringApplication.SpringApplication.entity.Student;
 import com.SpringApplication.SpringApplication.service.CourseService;
 import com.SpringApplication.SpringApplication.service.StudentService;
@@ -32,7 +31,9 @@ public class StudentController {
     @GetMapping("/list")
     public String listStudents(Model theModel){
 
-        List<StudentDto> studentDtos= StudentMapper.INSTANCE.toDtos(studentService.findAllStudents());
+        StudentConverter studentConverter=new StudentConverter();
+
+        List<StudentDto> studentDtos= studentConverter.entityToDto(studentService.findAllStudents());
 
 
         theModel.addAttribute("students",studentDtos);
@@ -46,13 +47,13 @@ public class StudentController {
     public String showFormForUpdateStudent(@RequestParam("studentId") int theId,
                                     Model theModel) {
 
-        StudentDto studentDto=StudentMapper.INSTANCE.toDto(studentService.findStudentById(theId));
+        StudentDto studentDto=new StudentConverter().entityToDto(studentService.findStudentById(theId));
 
 
         theModel.addAttribute("student", studentDto);
 
-
-        List<CourseDto> courseDtos= CourseMapper.INSTANCE.toDtos(courseService.findAllCourses());
+        CourseConverter courseConverter=new CourseConverter();
+        List<CourseDto> courseDtos= courseConverter.entityToDto(courseService.findAllCourses());
 
         theModel.addAttribute("theCourse",courseDtos);
 
@@ -66,7 +67,7 @@ public class StudentController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         StudentUserDetails userDetails = (StudentUserDetails)auth.getPrincipal();
         String emailId = userDetails.getUsername();
-        StudentDto studentDto=StudentMapper.INSTANCE.toDto(studentService.findStudentByEmail(emailId));
+        StudentDto studentDto=new StudentConverter().entityToDto(studentService.findStudentByEmail(emailId));
         model.addAttribute("student",studentDto);
         return "student-page";
     }
@@ -74,7 +75,8 @@ public class StudentController {
 
     @GetMapping("/showAccount")
     public String showStudentAccountPage(@RequestParam("studentId") int id,Model model){
-        StudentDto studentDto=StudentMapper.INSTANCE.toDto(studentService.findStudentById(id));
+        StudentConverter studentConverter=new StudentConverter();
+        StudentDto studentDto= studentConverter.entityToDto(studentService.findStudentById(id));
         model.addAttribute("student",studentDto);
         return "student/account-page";
     }
